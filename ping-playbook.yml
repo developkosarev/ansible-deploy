@@ -1,0 +1,17 @@
+---
+- name: Test connection to my server
+  hosts: all
+  gather_facts: false
+  
+  tasks:
+    - name: Ping my servers
+      ping:
+      
+    - name: Check python
+      shell: "python --version" 
+      register: python_version
+      
+    - debug:
+        var: python_version
+        
+    - debug: var=ansible_host
